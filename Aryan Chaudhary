@@ -1,0 +1,133 @@
+// Aryan_Chaudhary_Portfolio.jsx
+// Single-file React component (Tailwind CSS utility classes)
+// Default export - drop into a Create React App / Next.js page or preview in Canvas
+
+import React from "react";
+import { Mail, Phone, MapPin } from "lucide-react";
+import { motion } from "framer-motion";
+
+export default function Portfolio() {
+  const contact = {
+    email: "chaudharyaryan0250@gmail.com",
+    phone: "+91 8791631458",
+    location: "Greater Noida, India",
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50 text-slate-800 py-12 px-6 md:px-12">
+      <div className="max-w-5xl mx-auto bg-white shadow-lg rounded-2xl overflow-hidden">
+        <div className="md:flex">
+          <aside className="md:w-1/3 bg-gradient-to-b from-sky-600 to-indigo-600 text-white p-8">
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="space-y-4"
+            >
+              <h1 className="text-3xl font-bold">Aryan Chaudhary</h1>
+              <p className="text-sm opacity-90">BBA Student • Aspiring Master's in Finance (Germany)</p>
+
+              <div className="mt-4 text-sm space-y-2">
+                <div className="flex items-center gap-2">
+                  <MapPin size={16} />
+                  <span>{contact.location}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail size={16} />
+                  <a href={`mailto:${contact.email}`} className="underline">{contact.email}</a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone size={16} />
+                  <a href={`tel:${contact.phone}`} className="underline">{contact.phone}</a>
+                </div>
+              </div>
+
+              <div className="mt-6">
+                <a
+                  href="#resume"
+                  className="inline-block bg-white text-indigo-700 px-4 py-2 rounded-md font-semibold shadow-sm"
+                >
+                  View Resume
+                </a>
+              </div>
+            </motion.div>
+          </aside>
+
+          <main className="md:w-2/3 p-8">
+            <motion.section
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="prose max-w-none"
+            >
+              <h2>Career Objective</h2>
+              <p>
+                Motivated and ambitious BBA student seeking to pursue a Master&apos;s in Finance in Germany. Eager
+                to leverage academic knowledge and analytical skills in a global learning environment to contribute
+                meaningfully to the field of finance and business management.
+              </p>
+
+              <h2>Education</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="p-4 border rounded-lg">
+                  <h3 className="font-semibold">Bachelor of Business Administration (B.B.A.)</h3>
+                  <p className="text-sm">G.L. Bajaj Institute Of Management And Research — 2023 - 2026</p>
+                </div>
+                <div className="p-4 border rounded-lg">
+                  <h3 className="font-semibold">Senior Secondary (XII), CBSE — Commerce</h3>
+                  <p className="text-sm">Silver Bells Public School, Shamli — 2023</p>
+                  <p className="text-sm">CGPA (school): 7.00 / 7</p>
+                </div>
+              </div>
+
+              <h2 className="mt-6">Skills</h2>
+              <div className="flex flex-wrap gap-2 mt-2">
+                {[
+                  "Financial Analysis",
+                  "Microsoft PowerApps",
+                  "Effective Communication",
+                  "Teamwork",
+                  "Problem Solving",
+                  "Content Writing",
+                  "Email Marketing",
+                ].map((s) => (
+                  <span key={s} className="text-sm px-3 py-1 border rounded-full">{s}</span>
+                ))}
+              </div>
+
+              <h2 className="mt-6">Extra-curricular & Leadership</h2>
+              <ul>
+                <li>Managed college events occasionally (including VIP events)</li>
+                <li>Member of NCC</li>
+                <li>Class Monitor and House Captain during school</li>
+              </ul>
+
+              <h2 id="resume" className="mt-6">Resume / Download</h2>
+              <p>
+                Download the PDF of the resume and use it for formal applications or to attach with job/uni forms.
+              </p>
+              <div className="mt-3">
+                <a
+                  href="/files/AryanChaudhary_InternshalaResume-1.pdf"
+                  download
+                  className="inline-block px-4 py-2 border rounded-md"
+                >
+                  Download Resume (PDF)
+                </a>
+              </div>
+
+              <h2 className="mt-6">Contact</h2>
+              <p>If you&apos;d like to connect for mentorship, internships, or Master&apos;s application help — reach out!</p>
+              <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <a href={`mailto:${contact.email}`} className="px-4 py-2 border rounded-md text-sm inline-block">Email</a>
+                <a href={`tel:${contact.phone}`} className="px-4 py-2 border rounded-md text-sm inline-block">Call / WhatsApp</a>
+              </div>
+
+              <footer className="mt-8 text-xs opacity-70">Designed & built by Aryan Chaudhary</footer>
+            </motion.section>
+          </main>
+        </div>
+      </div>
+    </div>
+  );
+}
